@@ -322,8 +322,9 @@ def stocks_menu():
                     print("Stock succesfully deleted!")
             # Shows relevant information about stocks
             case 5:
-                restock = pd.read_sql_query("SELECT COUNT(*) as COUNT FROM stocks WHERE quantity=0", con)
+                restock = pd.read_sql_query("SELECT COUNT(*) as COUNT FROM stocks WHERE quantity=0;", con)
                 print(f"Currently there are {restock["COUNT"][0]} stock/s that need restock.")
+                print(pd.read_sql_query("SELECT * FROM stocks WHERE quantity=0;", con))
 
 def input_checker_float(question, list=[]):
     """
